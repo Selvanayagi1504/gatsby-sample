@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-
+import {Modal} from './modal';
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-
+import {useEffect,useState} from 'react';
 /**
 * Single post view (/:slug)
 *
@@ -14,7 +14,19 @@ import { MetaData } from '../components/common/meta'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
-
+    const [show,setshow]=useState(false);
+    useEffect(()=>{
+        // setTimeout(showModal(),5000);
+        setTimeout(function(){
+            setshow(true)
+           }, 5000);
+    },[])
+    function showModal(){
+        setshow(true);
+    }
+    function hideModal(){
+        setshow(false);
+    }
     return (
         <>
             <MetaData
@@ -25,6 +37,9 @@ const Post = ({ data, location }) => {
             <Helmet>
                 <style type="text/css">{`${post.codeinjection_styles}`}</style>
             </Helmet>
+            <Modal show={show} handleClose={hideModal}>
+                <p>Modal</p>
+            </Modal>
             <Layout>
                 <div className="container">
                     <article className="content">

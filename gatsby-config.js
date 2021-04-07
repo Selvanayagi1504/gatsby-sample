@@ -57,6 +57,13 @@ module.exports = {
                 name: `images`,
             },
         },
+        {
+            resolve: `gatsby-source-ghost`,
+            options: {
+              apiUrl: `http://localhost:2368`,
+              contentApiKey: `dec6dc58408eb88ee2b3e0147a`
+            }
+          },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         {
