@@ -18,7 +18,7 @@ export function Modal ({ handleClose, show, children }) {
    "description":email,
    "published":true
     }
-    fetch('http://localhost:8080/api/tutorials/new', {
+    fetch('https://selva-gatsby.herokuapp.com/api/tutorials/new', {
     method: "POST",
     body: JSON.stringify(_data),
     headers: {"Content-type": "application/json; charset=UTF-8"}
